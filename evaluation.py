@@ -24,7 +24,7 @@ def calculator(param_list=None):
     return param_list[0]
 
 
-def segrigate_all_param(data=None):
+def segregate_all_param(data=None):
     param_list = list()
     num, c, d_diviser, decimal_flag = 0, 0, 10, False
     for i, d in enumerate(data):
@@ -50,7 +50,7 @@ def segrigate_all_param(data=None):
     return param_list
 
 
-def separate_bractes(params=None):
+def separate_brackets(params=None):
     if '(' and ')' in params:
         open_splitter = params.split('(')
         if len(open_splitter) == 2:
@@ -66,8 +66,8 @@ def separate_bractes(params=None):
 
 def calculate_element(elem=None):
     while '(' and ')' in elem:
-        elem = separate_bractes(elem)
-    ls = segrigate_all_param(elem)
+        elem = separate_brackets(elem)
+    ls = segregate_all_param(elem)
     result = calculator(ls)
     return result
 
@@ -79,5 +79,5 @@ def calculate_str(data=None):
     except Exception as e:
         raise Exception("Please provide a valid segment")
 
-calculate_str("100/(10-(3*3))+(2+12)/14")
 
+calculate_str("100/(10-(3*3))+(2+12)/14")
